@@ -1,10 +1,13 @@
 ---
 title: CASAMAIL Restful post
 keywords: casamail
-summary: "Objekt-Anfragen können in das CASAMAIL System durch diese RestFull-Schnittstelle erstellt werden"
+summary: >-
+  Objekt-Anfragen können in das CASAMAIL System durch diese
+  RestFull-Schnittstelle erstellt werden
 sidebar: casagateway_sidebar
 permalink: /casamail-rest-post/
 folder: casagateway
+published: true
 ---
 
 
@@ -91,8 +94,7 @@ property_price                 |                123456               |   | Verka
 	$result = curl_exec($ch);
 	$json = json_decode($result, true);
 	if (isset($json['validation_messages'])) {
-		wp_mail( 'js@casasoft.ch', 'casawp casamail issue', print_r($json['validation_messages'], true));
-		return '<p class="alert alert-danger">'.print_r($json['validation_messages'], true).'</p>';
+		echo '<p>'.print_r($json['validation_messages'], true).'</p>';
 	}
 ?>
 ```
