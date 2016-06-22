@@ -1,14 +1,21 @@
 ---
 title: CasaXML export per HTTP
 keywords: casaxml
-summary: "Diese Schnittstelle ermöglicht das transferieren von Objektdaten eines Veröffentlichungs-Portal auf CASAGATEWAY (normalerweise publisher genant) mittels dem CasaXml Standart. Dies wird vollständig über HTTP ermöglich und benötigt sommit keine FTP abhängigkeiten. Das XML kann beliebig von dem CASAGATEWAY API jederzeit abgeholt werden. CASAGATEWAY generiert und liefert per response dan direkt ein XML body. Ebenfalls wird CASAGATEWAY pokes/hooks ausführen sobald jegliche änderungen oder mutationen zu den Daten vorgenommen wurden. Diese werden per GET an einem vorkonfigurierten URI ausgelöst."
+summary: >-
+  Diese Schnittstelle ermöglicht das transferieren von Objektdaten eines
+  Veröffentlichungs-Portal auf CASAGATEWAY (normalerweise publisher genant)
+  mittels dem CasaXml Standart. Dies wird vollständig über HTTP ermöglich und
+  benötigt sommit keine FTP abhängigkeiten. Das XML kann beliebig von dem
+  CASAGATEWAY API jederzeit abgeholt werden. CASAGATEWAY generiert und liefert
+  per response dan direkt ein XML body. Ebenfalls wird CASAGATEWAY pokes/hooks
+  ausführen sobald jegliche änderungen oder mutationen zu den Daten vorgenommen
+  wurden. Diese werden per GET an einem vorkonfigurierten URI ausgelöst.
 sidebar: casagateway_sidebar
 permalink: /casaxml-export/
 folder: casagateway
+published: true
 ---
-
-
-## Wie erhalte ich die API und Private Keys?
+## Wie erhalte ich die API und Private Keys??
 
 Casasoft AG kann Ihnen diese keys gennerieren und liefern. Jeder Schlüssel dient zum authentifizieren einer `publisher` Schnittstelle die die Objekte und/oder Projekte von einem oder mehreren `provider`s ermöglicht. Meistens werden nur Schnitstellen von individuellen providers erstellt.
 
