@@ -14,15 +14,15 @@ Casasoft AG kann Ihnen diese keys gennerieren und liefern. Jeder Schlüssel dien
 
 ## Wie kann ich ein XML generieren und fetchen?
 
-Der request läuft mittels gewöhnlichem `http` und einem `HMAC handshake` der durch ein `API Key` und einem `Private Key` generiert wird ab. Dieser wird von `CASAGATEWAY` zur verfügung gestellt. Bitte beachten Sie das Sie den `Private Key` nie Öffentlich zugänglich machen.
+Der request läuft mittels gewöhnlichem `http` und einem `HMAC handshake` der durch ein `API Key` und einem `Private Key` generiert wird ab. Dieser wird von `CASAGATEWAY` zur Verfügung gestellt. Bitte beachten Sie, dass Sie den `Private Key` nie Öffentlich zugänglich machen.
 
 [CasaXML](https://github.com/CasasoftCH/CasaXML)
 
-Dieses XML kann dan beliebig mit Ihrer Infrastruktur beglichen werden, oder Sie nutzen das XML gleich als Speicher-Medium. Das `parsen` und `persistieren` dieser XML liegt in den Händen des Konsumenten. Allerdings bieten wir einige PHP Klassen an die das interpretieren von Werten vereinfacht. [github.com/casamodules/CasasoftStandards](https://github.com/CasasoftCH/casamodules/tree/master/src/CasasoftStandards)
+Dieses XML kann dann beliebig mit Ihrer Infrastruktur beglichen werden, oder Sie nutzen das XML gleich als Speicher-Medium. Das Auslesen und Speichern dieser XML liegt in den Händen des Konsumenten. Allerdings bieten wir einige PHP Klassen an die das interpretieren von Werten vereinfacht. [github.com/casamodules/CasasoftStandards](https://github.com/CasasoftCH/casamodules/tree/master/src/CasasoftStandards)
 
 ### HMAC Formula
 
-Hier wird abstrahiert wie der request hmac key generiert wird und an einem request string angehängt wird. Achten Sie das der `Private Key` niemals im schlussendlichem request angegeben wird. Anstelle wird ein `hmac key` und das öffentliche `api key` mitgeliefert. Die `+` Zeichen dienen nur zur visuellen trennung. 
+Hier wird abstrahiert wie der request hmac key generiert wird und an einem request string angehängt wird. Achten Sie darauf, dass der `Private Key` niemals im schlussendlichem request angegeben wird. Anstelle wird ein `hmac key` und das öffentliche `api key` mitgeliefert. Die `+` Zeichen dienen nur zur visuellen Trennung. 
 
 ```
 checkstring = key1+value1+key2+value2+key3+value3+PRIVATE_KEY+TIMESTAMP
@@ -109,13 +109,13 @@ Dieses Beispiel zeigt eine einfache PHP Funktion die mittels CURL diese Abfrage 
 
 ## Wie weiss ich wenn sich etwas aktualisiert hat?
 
-`CASAGATEWAY` wird bei jeglichen Änderungen einen `GET poke/hook` auf eine vordefinierte URI ausführen. Diese kann z.B. wie folgt aussehen:
+`CASAGATEWAY` wird bei jeglichen Änderungen einen `GET poke/hook` auf eine vordefinierte URI ausführen. Sie können uns also einen Link zur Verfügung stellen, welcher automatisch vom `CASAGATEWAY` angestossen wird, sobald es eine Änderung gibt. Dieser kann z.B. wie folgt aussehen:
 
 ```
 http://your-new-website.ch/casagateway-change-alert?timestamp=1234567890&a_super_secret_key=12k34k5j2hkj34k2j3bkj2b3kj3
 ```
 
-Hier könnte ein Script sein welches ein Import bei der nächsten Gelegenheit ausführt. Allerdings sollten die imports nur asynchron angestossen werden oder zukünftig vermerkt werden. Während diesem Aufrufs sollte kein Import ausgeführt werden da der CASAGATEWAY denn request nach einer kurzen Zeit abbrechen wird.
+Hier könnte ein Script sein welches ein Import bei der nächsten Gelegenheit ausführt. Allerdings sollten die imports nur asynchron angestossen werden oder zukünftig vermerkt werden. Während diesem Aufruf sollte kein Import ausgeführt werden da der CASAGATEWAY den request nach einer kurzen Zeit abbrechen wird.
 
 ## Glossar
 
